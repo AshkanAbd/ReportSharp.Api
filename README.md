@@ -1,24 +1,24 @@
-# ReportSharp.Api-1.0.5:
+## ReportSharp.Api-1.0.5:
 
-## Description:
+### Description:
 
-#### Api for ReportSharp.DatabaseReporter of ReportSharp package
+Api for ReportSharp.DatabaseReporter of ReportSharp package
 
-## Dependencies:
+### Dependencies:
 
-#### ReportSharp.DatabaseReporter: 1.0.5
+ReportSharp.DatabaseReporter: 1.0.5
 
-#### Dotnet Core 3.1 or later
+Dotnet Core 3.1 or later
 
-## Usage:
+### Usage:
 
-### Note:
+#### Note:
 
-#### You need to install and configure [ReportSharp](https://www.nuget.org/packages/ReportSharp/) and [ReportSharp.DatabaseReporter](https://www.nuget.org/packages/ReportSharp.DatabaseReporter/) `1.0.5` or later to use this package.
+You need to install and configure [ReportSharp](https://www.nuget.org/packages/ReportSharp/) and [ReportSharp.DatabaseReporter](https://www.nuget.org/packages/ReportSharp.DatabaseReporter/) `1.0.5` or later to use this package.
 
-### Dotnet 5 or below:
+#### Dotnet 5 or below:
 
-#### 1) Add following lines to `ConfigureServices` method in `Startup` class:
+1) Add following lines to `ConfigureServices` method in `Startup` class:
 
 ```c#
 services.AddReportSharp(options => {
@@ -33,7 +33,7 @@ services.AddReportSharp(options => {
 });
 ```
 
-#### 2) Add following lines to `Configure` method in `Startup` class:
+2) Add following lines to `Configure` method in `Startup` class:
 
 ```c#
 app.UseReportSharp(configure => {
@@ -43,7 +43,7 @@ app.UseReportSharp(configure => {
 
 ### Dotnet 6 or later:
 
-#### 1) Add following lines to `services` section, before `builder.Build()` line:
+1) Add following lines to `services` section, before `builder.Build()` line:
 
 ```c#
 services.AddReportSharp(options => {
@@ -58,10 +58,15 @@ services.AddReportSharp(options => {
 });
 ```
 
-#### 2) Add following lines to `Configure` section, after `builder.Build()` line:
+2) Add following lines to `Configure` section, after `builder.Build()` line:
 
 ```c#
 app.UseReportSharp(configure => {
     configure.UseApis();
 });
 ```
+### Donation:
+#### If you like it, you can support me with `USDT`:
+1) `TJ57yPBVwwK8rjWDxogkGJH1nF3TGPVq98` for `USDT TRC20`
+2) `0x743379201B80dA1CB680aC08F54b058Ac01346F1` for `USDT ERC20`
+
