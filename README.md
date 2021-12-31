@@ -2,7 +2,7 @@
 
 ### Description:
 
-Api for ReportSharp.DatabaseReporter of ReportSharp package
+Api for [ReportSharp.DatabaseReporter](https://www.nuget.org/packages/ReportSharp.DatabaseReporter/) of ReportSharp package
 
 ### Dependencies:
 
