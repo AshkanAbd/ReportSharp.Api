@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <OutputType>Library</OutputType>
+        <AssemblyName>ReportSharp.Api</AssemblyName>
+        <RootNamespace>ReportSharp.Api</RootNamespace>
+        <PackageId>ReportSharp.Api</PackageId>
+        <Version>1.0.5</Version>
+        <Authors>AshkanAbd</Authors>
+        <Company>AshkanAbd</Company>
+        <PackageVersion>1.0.5</PackageVersion>
+        <Title>Api for ReportSharp.DatabaseReporter of ReportSharp package</Title>
+        <Description>Api for ReportSharp.DatabaseReporter of ReportSharp package</Description>
+        <PackageTags>Logger;Reporter;Crash detection;Crash;Crash detector;database reporter;api</PackageTags>
+        <RepositoryUrl>https://github.com/AshkanAbd/ReportSharp.Api</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ReportSharp.DatabaseReporter" Version="1.0.5"/>
+    </ItemGroup>
+</Project>
