@@ -65,8 +65,52 @@ app.UseReportSharp(configure => {
     configure.UseApis();
 });
 ```
+
+### Available apis:
+
+|            URL            |       Header       |      Query     |                  Action                   |
+| ------------------------- | ------------------ | -------------- | ----------------------------------------- |
+| ApiPrefix+"request/"      | username, password | page, pageSize | List of reported requests to database     |
+| ApiPrefix+"request/{id}"  | username, password |                | Get reported request                      |
+| ApiPrefix+"exception/"    | username, password | page, pageSize | List of reported exceptions to database   |
+| ApiPrefix+"exception/{id}"| username, password |                | Get reported exceptions                   |
+| ApiPrefix+"data/"         | username, password | page, pageSize | List of reported data to database         |
+| ApiPrefix+"data/{id}"     | username, password |                | Get reported data                         |
+
+### Default implementation for api password
+
+```c#
+public string CalculatePassword(string username)
+{
+    var now = DateTime.Now;
+
+    var usernameCode = GetAsciiValue(username);
+    var secretKeyCode = GetAsciiValue(ReportSharpApiConfig.SecretKey);
+    var mergedUsernameSecretKey = long.Parse($"{usernameCode}{secretKeyCode}");
+
+    var todayCode = long.Parse($"{now.Year:0000}{now.Month:00}{now.Day:00}");
+
+    var validPassword = mergedUsernameSecretKey ^ todayCode;
+
+    return validPassword.ToString();
+}
+
+public long GetAsciiValue(string str)
+{
+    return str.ToCharArray().Aggregate(0, (current, c) => current + c);
+}
+```
+
+#### Notes:
+
+1. Result of `CalculatePassword` method in above source code is password for apis.
+2. Default password implementation is time based.
+3. you can change default implementation by implementing `IApiAuthorizationService` interface in your `Authorization` class and enable it by `apiOptions.UseAuthorization<YourAuthorization>()`
+
 ### Donation:
+
 #### If you like it, you can support me with `USDT`:
+
 1) `TJ57yPBVwwK8rjWDxogkGJH1nF3TGPVq98` for `USDT TRC20`
 2) `0x743379201B80dA1CB680aC08F54b058Ac01346F1` for `USDT ERC20`
 
